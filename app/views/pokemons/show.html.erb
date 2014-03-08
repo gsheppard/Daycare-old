@@ -1,4 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_pokemon_path(@pokemon) %> |
-<%= link_to 'Back', pokemons_path %>
+<h1><%= @pokemon[:identifier].capitalize %></h1>
+
+<div class="col-md-6">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th colspan="2">Type</td>
+    </tr>
+
+    <tbody>
+      <tr>
+        <td><%= @pokemon.types[0][:identifier].capitalize %></td>
+        <td>
+          <% if !@pokemon.types[1].nil? %>
+            <%= link_to @pokemon.types[1][:identifier].capitalize, @pokemon.types[1] %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+
+  <table>
+</div>
