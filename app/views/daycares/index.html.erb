@@ -1,0 +1,33 @@
+<h1>Listing daycares</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Pokemon</th>
+      <th>Hp iv</th>
+      <th>Atk iv</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daycares.each do |daycare| %>
+      <tr>
+        <td><%= daycare.user_id %></td>
+        <td><%= daycare.pokemon_id %></td>
+        <td><%= daycare.hp_iv %></td>
+        <td><%= daycare.atk_iv %></td>
+        <td><%= link_to 'Show', daycare %></td>
+        <td><%= link_to 'Edit', edit_daycare_path(daycare) %></td>
+        <td><%= link_to 'Destroy', daycare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daycare', new_daycare_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @daycare.user_id %>
+</p>
+
+<p>
+  <strong>Pokemon:</strong>
+  <%= @daycare.pokemon_id %>
+</p>
+
+<p>
+  <strong>Hp iv:</strong>
+  <%= @daycare.hp_iv %>
+</p>
+
+<p>
+  <strong>Atk iv:</strong>
+  <%= @daycare.atk_iv %>
+</p>
+
+<%= link_to 'Edit', edit_daycare_path(@daycare) %> |
+<%= link_to 'Back', daycares_path %>

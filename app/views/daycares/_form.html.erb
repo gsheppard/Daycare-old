@@ -1,0 +1,33 @@
+<%= form_for(@daycare) do |f| %>
+  <% if @daycare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@daycare.errors.count, "error") %> prohibited this daycare from being saved:</h2>
+
+      <ul>
+      <% @daycare.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pokemon_id %><br>
+    <%= f.number_field :pokemon_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hp_iv %><br>
+    <%= f.number_field :hp_iv %>
+  </div>
+  <div class="field">
+    <%= f.label :atk_iv %><br>
+    <%= f.number_field :atk_iv %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
