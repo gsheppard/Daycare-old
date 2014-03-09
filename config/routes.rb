@@ -1,4 +1,6 @@
 Pokedb::Application.routes.draw do
+  resources :natures
+
   resources :abilities
 
   resources :daycares

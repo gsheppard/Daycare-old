@@ -1,0 +1,25 @@
+<h1>Listing natures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @natures.each do |nature| %>
+      <tr>
+        <td><%= link_to 'Show', nature %></td>
+        <td><%= link_to 'Edit', edit_nature_path(nature) %></td>
+        <td><%= link_to 'Destroy', nature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nature', new_nature_path %>
