@@ -10,6 +10,8 @@ class MovesController < ApplicationController
   # GET /moves/1
   # GET /moves/1.json
   def show
+    @type = @move.types[0]
+    @pokemons = @type.pokemons
   end
 
   # GET /moves/new

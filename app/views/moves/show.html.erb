@@ -1,4 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_move_path(@move) %> |
-<%= link_to 'Back', moves_path %>
+<h1><%= @move[:identifier].capitalize %></h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Type</th>
+    <th>Power</th>
+    <th>PP</th>
+    <th>Accuracy</th>
+    <th>Description</th>
+  </tr>
+
+  <tbody>
+    <td><%= @type.identifier.capitalize %></td>
+    <td><%= @move.power %></td>
+    <td><%= @move.pp %></td>
+    <td><%= @move.accuracy %></td>
+    <td></td>
+  </tbody>
+</table>
+
+<h3>Pokemon that learn this move</h3>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Name</th>
+    <th colspan="2">Type</th>
+  </tr>
+
+  <tbody>
+    <% @pokemons.each do |pokemon| %>
+      <tr>
+        <td><%= link_to pokemon.identifier.capitalize, pokemon %></td>
+        <td><%= link_to pokemon.types[0][:identifier].capitalize, pokemon.types[0] %></td>
+        <td>
+          <% if !pokemon.types[1].nil? %>
+            <%= link_to pokemon.types[1][:identifier].capitalize, pokemon.types[1] %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
