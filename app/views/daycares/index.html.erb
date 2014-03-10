@@ -1,33 +1,70 @@
-<h1>Listing daycares</h1>
+<h1>Daycare</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Pokemon</th>
-      <th>Hp iv</th>
-      <th>Atk iv</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= form_for(@daycare_new) do |f| %>
+  <% if @daycare_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@daycare.errors.count, "error") %> prohibited this daycare from being saved:</h2>
 
-  <tbody>
-    <% @daycares.each do |daycare| %>
+      <ul>
+      <% @daycare_new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= daycare.user_id %></td>
-        <td><%= daycare.pokemon_id %></td>
-        <td><%= daycare.hp_iv %></td>
-        <td><%= daycare.atk_iv %></td>
-        <td><%= link_to 'Show', daycare %></td>
-        <td><%= link_to 'Edit', edit_daycare_path(daycare) %></td>
-        <td><%= link_to 'Destroy', daycare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <th>User</th> -->
+        <th>Pokemon</th>
+        <th>Hp iv</th>
+        <th>Atk iv</th>
+        <th>Def iv</th>
+        <th>Spa iv</th>
+        <th>Spd iv</th>
+        <th>Spe iv</th>
+        <th>Abil</th>
+        <th>Nature</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <tr>
+        <!-- <td><%= f.number_field :user_id %></td> -->
+        <td><%= f.number_field :pokemon_id %></td>
+        <td><%= f.check_box :hp_iv %></td>
+        <td><%= f.check_box :atk_iv %></td>
+        <td><%= f.check_box :def_iv %></td>
+        <td><%= f.check_box :spa_iv %></td>
+        <td><%= f.check_box :spd_iv %></td>
+        <td><%= f.check_box :spe_iv %></td>
+        <td><%= f.number_field :abil_id %></td>
+        <td><%= f.number_field :nature_id %></td>
+        <td><%= f.submit %></td>
+<% end %>
+      </tr>
 
-<%= link_to 'New Daycare', new_daycare_path %>
+      <% @daycares.each do |daycare| %>
+        <tr>
+          <td><%= daycare.user_id %></td>
+          <td><%= daycare.pokemon_id %></td>
+          <td><%= daycare.hp_iv %></td>
+          <td><%= daycare.atk_iv %></td>
+          <td><%= daycare.def_iv %></td>
+          <td><%= daycare.spa_iv %></td>
+          <td><%= daycare.spd_iv %></td>
+          <td><%= daycare.spe_iv %></td>
+          <td><%= daycare.abil_id %></td>
+          <td><%= daycare.nature_id %></td>
+          <td><%= link_to 'Show', daycare %></td>
+          <td><%= link_to 'Edit', edit_daycare_path(daycare) %></td>
+          <td><%= link_to 'Destroy', daycare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<%= link_to 'Add', new_daycare_path, class: "btn btn-success" %>

@@ -5,6 +5,7 @@ class DaycaresController < ApplicationController
   # GET /daycares.json
   def index
     @daycares = Daycare.all
+    @daycare_new = Daycare.new
   end
 
   # GET /daycares/1
@@ -69,6 +70,6 @@ class DaycaresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def daycare_params
-      params.require(:daycare).permit(:user_id, :pokemon_id, :hp_iv, :atk_iv)
+      params.require(:daycare).permit(:user_id, :pokemon_id, :hp_iv, :atk_iv, :def_iv, :spa_iv, :spd_iv, :spe_iv, :abil_id, :nature_id)
     end
 end

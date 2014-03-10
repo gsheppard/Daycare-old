@@ -18,7 +18,7 @@ class DaycaresControllerTest < ActionController::TestCase
 
   test "should create daycare" do
     assert_difference('Daycare.count') do
-      post :create, daycare: { atk_iv: @daycare.atk_iv, hp_iv: @daycare.hp_iv, pokemon_id: @daycare.pokemon_id, user_id: @daycare.user_id }
+      post :create, daycare: { abil_id: @daycare.abil_id, atk_iv: @daycare.atk_iv, def_iv: @daycare.def_iv, hp_iv: @daycare.hp_iv, nature_id: @daycare.nature_id, pokemon_id: @daycare.pokemon_id, spa_iv: @daycare.spa_iv, spd_iv: @daycare.spd_iv, spe_iv: @daycare.spe_iv, user_id: @daycare.user_id }
     end
 
     assert_redirected_to daycare_path(assigns(:daycare))
@@ -35,7 +35,7 @@ class DaycaresControllerTest < ActionController::TestCase
   end
 
   test "should update daycare" do
-    patch :update, id: @daycare, daycare: { atk_iv: @daycare.atk_iv, hp_iv: @daycare.hp_iv, pokemon_id: @daycare.pokemon_id, user_id: @daycare.user_id }
+    patch :update, id: @daycare, daycare: { abil_id: @daycare.abil_id, atk_iv: @daycare.atk_iv, def_iv: @daycare.def_iv, hp_iv: @daycare.hp_iv, nature_id: @daycare.nature_id, pokemon_id: @daycare.pokemon_id, spa_iv: @daycare.spa_iv, spd_iv: @daycare.spd_iv, spe_iv: @daycare.spe_iv, user_id: @daycare.user_id }
     assert_redirected_to daycare_path(assigns(:daycare))
   end
 

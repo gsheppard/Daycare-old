@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140310001008) do
 
   create_table "abilities", force: true do |t|
     t.string  "identifier",     limit: 24, null: false
@@ -333,6 +333,22 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "contest_types", force: true do |t|
     t.string "identifier", limit: 6, null: false
+  end
+
+  create_table "daycares", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "pokemon_id"
+    t.boolean  "hp_iv"
+    t.boolean  "atk_iv"
+    t.boolean  "def_iv"
+    t.boolean  "spa_iv"
+    t.boolean  "spd_iv"
+    t.boolean  "spe_iv"
+    t.integer  "abil_id"
+    t.integer  "nature_id"
+    t.integer  "total_ivs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "egg_group_prose", primary_key: "egg_group_id", force: true do |t|

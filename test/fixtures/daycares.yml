@@ -5,9 +5,21 @@ one:
   pokemon_id: 1
   hp_iv: 1
   atk_iv: 1
+  def_iv: 1
+  spa_iv: 1
+  spd_iv: 1
+  spe_iv: 1
+  abil_id: 1
+  nature_id: 1
 
 two:
   user_id: 1
   pokemon_id: 1
   hp_iv: 1
   atk_iv: 1
+  def_iv: 1
+  spa_iv: 1
+  spd_iv: 1
+  spe_iv: 1
+  abil_id: 1
+  nature_id: 1
