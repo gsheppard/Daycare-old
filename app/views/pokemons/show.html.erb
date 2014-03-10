@@ -3,25 +3,65 @@
 <h1><%= @pokemon[:identifier].capitalize %></h1>
 
 <div class="col-md-6">
+  <h3>General Info</h3>
   <table class="table table-striped table-bordered">
     <tr>
       <th>Type 1</th>
       <th>Type 2</th>
+      <th>HP</th>
+      <th>ATK</th>
+      <th>DEF</th>
+      <th>SPA</th>
+      <th>SPD</th>
+      <th>SPE</th>
     </tr>
 
     <tbody>
       <tr>
-        <td><%= @pokemon.types[0][:identifier].capitalize %></td>
+        <td><%= link_to @pokemon.types[0][:identifier].capitalize, @pokemon.types[0] %></td>
         <td>
           <% if !@pokemon.types[1].nil? %>
             <%= link_to @pokemon.types[1][:identifier].capitalize, @pokemon.types[1] %>
           <% end %>
         </td>
+        <td><%= @stats[0].base_stat %></td>
+        <td><%= @stats[1].base_stat %></td>
+        <td><%= @stats[2].base_stat %></td>
+        <td><%= @stats[3].base_stat %></td>
+        <td><%= @stats[4].base_stat %></td>
+        <td><%= @stats[5].base_stat %></td>
       </tr>
     </tbody>
 
   <table>
 </div>
+
+
+<div class="col-md-6">
+  <h3>Abilities</h3>
+
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Primary</th>
+      <th>Secondary</th>
+      <th>Hidden</th>
+    </tr>
+
+    <tbody>
+      <tr>
+        <td><%= @pokemon.ability[0].identifier.capitalize %></td>
+        <td>
+          <% if !@pokemon.ability[1].nil? %>
+            <%= @pokemon.ability[1].identifier.capitalize %>
+          <% end %>
+        </td>
+        <td><%= @pokemon.ability[2].identifier.capitalize %></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
 
 <div class="col-md-6">
   <h3>Moveset</h3>

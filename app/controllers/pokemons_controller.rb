@@ -11,6 +11,7 @@ class PokemonsController < ApplicationController
   # GET /pokemons/1.json
   def show
     @moves = @pokemon.moves
+    @stats = @pokemon.pokemon_stats
   end
 
   # GET /pokemons/new
