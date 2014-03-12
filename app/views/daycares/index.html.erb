@@ -78,12 +78,12 @@
       <% @daycares.each do |daycare| %>
         <tr>
           <td><%= daycare.pokemon.identifier.capitalize %></td>
-          <td><%= daycare.hp_iv %></td>
-          <td><%= daycare.atk_iv %></td>
-          <td><%= daycare.def_iv %></td>
-          <td><%= daycare.spa_iv %></td>
-          <td><%= daycare.spd_iv %></td>
-          <td><%= daycare.spe_iv %></td>
+          <td><%= 'X' if daycare.hp_iv == true %></td>
+          <td><%= 'X' if daycare.atk_iv == true %></td>
+          <td><%= 'X' if daycare.def_iv == true %></td>
+          <td><%= 'X' if daycare.spa_iv == true %></td>
+          <td><%= 'X' if daycare.spd_iv == true %></td>
+          <td><%= 'X' if daycare.spe_iv == true %></td>
           <td><%= daycare.ability.identifier.capitalize %></td>
           <td><%= daycare.nature.identifier.capitalize %></td>
           <td><%= link_to 'Edit', edit_daycare_path(daycare) %></td>
