@@ -18,14 +18,15 @@
       <tr>
         <!-- <th>User</th> -->
         <th>Pokemon</th>
-        <th>Hp iv</th>
-        <th>Atk iv</th>
-        <th>Def iv</th>
-        <th>Spa iv</th>
-        <th>Spd iv</th>
-        <th>Spe iv</th>
-        <th>Abil</th>
+        <th>HP</th>
+        <th>ATK</th>
+        <th>DEF</th>
+        <th>SPA</th>
+        <th>SPD</th>
+        <th>SPE</th>
+        <th>Ability</th>
         <th>Nature</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -33,38 +34,61 @@
     <tbody>
       <tr>
         <!-- <td><%= f.number_field :user_id %></td> -->
-        <td><%= f.number_field :pokemon_id %></td>
+        <!-- <td><%= f.number_field :pokemon_id %></td> -->
+        <td>
+          <%= collection_select(
+              :daycare,
+              :pokemon_id,
+              @pokemons,
+              :id,
+              :identifier
+            )
+          %>
+        </td>
         <td><%= f.check_box :hp_iv %></td>
         <td><%= f.check_box :atk_iv %></td>
         <td><%= f.check_box :def_iv %></td>
         <td><%= f.check_box :spa_iv %></td>
         <td><%= f.check_box :spd_iv %></td>
         <td><%= f.check_box :spe_iv %></td>
-        <td><%= f.number_field :abil_id %></td>
-        <td><%= f.number_field :nature_id %></td>
-        <td><%= f.submit %></td>
+        <td>
+          <%= collection_select(
+              :daycare,
+              :abil_id,
+              @abilities,
+              :id,
+              :identifier
+            )
+          %>
+        </td>
+        <td>
+          <%= collection_select(
+              :daycare,
+              :nature_id,
+              @natures,
+              :id,
+              :identifier
+            )
+          %>
+        </td>
+        <td colspan="2"><%= f.submit "Add Pokemon", class: "btn btn-success" %></td>
 <% end %>
       </tr>
 
       <% @daycares.each do |daycare| %>
         <tr>
-          <td><%= daycare.user_id %></td>
-          <td><%= daycare.pokemon_id %></td>
+          <td><%= daycare.pokemon.identifier.capitalize %></td>
           <td><%= daycare.hp_iv %></td>
           <td><%= daycare.atk_iv %></td>
           <td><%= daycare.def_iv %></td>
           <td><%= daycare.spa_iv %></td>
           <td><%= daycare.spd_iv %></td>
           <td><%= daycare.spe_iv %></td>
-          <td><%= daycare.abil_id %></td>
-          <td><%= daycare.nature_id %></td>
-          <td><%= link_to 'Show', daycare %></td>
+          <td><%= daycare.ability.identifier.capitalize %></td>
+          <td><%= daycare.nature.identifier.capitalize %></td>
           <td><%= link_to 'Edit', edit_daycare_path(daycare) %></td>
           <td><%= link_to 'Destroy', daycare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-
-<%= link_to 'Add', new_daycare_path, class: "btn btn-success" %>

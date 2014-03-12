@@ -5,4 +5,5 @@ class Ability < ActiveRecord::Base
     foreign_key: "ability_id"
   has_many :pokemon_abilities
 
+  belongs_to :daycares, foreign_key: "abil_id"
 end

@@ -6,6 +6,9 @@ class DaycaresController < ApplicationController
   def index
     @daycares = Daycare.all
     @daycare_new = Daycare.new
+    @pokemons = Pokemon.all
+    @abilities = Ability.all
+    @natures = Nature.all
   end
 
   # GET /daycares/1

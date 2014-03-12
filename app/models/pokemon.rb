@@ -12,6 +12,8 @@ class Pokemon < ActiveRecord::Base
   has_many :pokemon_stats
   has_many :stats, through: :pokemon_stats
 
+  belongs_to :daycares, foreign_key: "pokemon_id"
+
   def ability
     ability_array = []
 
