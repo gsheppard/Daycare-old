@@ -16,7 +16,7 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <!-- <th>User</th> -->
+        <th>Nickname</th>
         <th>Pokemon</th>
         <th>HP</th>
         <th>ATK</th>
@@ -33,8 +33,7 @@
 
     <tbody>
       <tr>
-        <!-- <td><%= f.number_field :user_id %></td> -->
-        <!-- <td><%= f.number_field :pokemon_id %></td> -->
+        <td><%= f.text_field :nickname %></td>
         <td>
           <%= collection_select(
               :daycare,
@@ -77,6 +76,7 @@
 
       <% @daycares.each do |daycare| %>
         <tr>
+          <td><%= daycare.nickname %></td>
           <td><%= daycare.pokemon.identifier.capitalize %></td>
           <td><%= 'X' if daycare.hp_iv == true %></td>
           <td><%= 'X' if daycare.atk_iv == true %></td>

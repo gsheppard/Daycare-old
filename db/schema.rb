@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310001008) do
+ActiveRecord::Schema.define(version: 20140317000505) do
 
   create_table "abilities", force: true do |t|
     t.string  "identifier",     limit: 24, null: false
@@ -349,6 +349,8 @@ ActiveRecord::Schema.define(version: 20140310001008) do
     t.integer  "total_ivs"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
+    t.integer  "sex"
   end
 
   create_table "egg_group_prose", primary_key: "egg_group_id", force: true do |t|
